@@ -33,10 +33,19 @@ describe('CountdownForm', () => {
         var countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy}/>);
         var $el = $(ReactDOM.findDOMNode(countdownForm));
 
-        countdownForm.refs.seconds.value = '109a';
+        countdownForm.refs.seconds.value = '1231d';
 
-        // simulate submit
+        // simulate submit -> pass input field
         TestUtils.Simulate.submit($el.find('form')[0]);
+
+
+        // Alternative - no jQuery
+        // var $el = ReactDOM.findDOMNode(countdownForm);
+        // TestUtils.Simulate.submit($el.getElementsByClassName('countdown-form')[0]);
+
+        // TestUtils.Simulate.click(countdownForm.refs.button); // another way, needs ref to access the button
+        // https://gist.github.com/jamesgorman2/3706c54a8074a6f227b67d893dc78537  -- check this out
+
 
         expect(spy).toNotHaveBeenCalled();
     });
