@@ -5,7 +5,7 @@ var CountdownForm = React.createClass({
         e.preventDefault();
 
         // returns string
-        var strSeconds = this.refs.seconds.value;
+        var strSeconds = this.refs.seconds.value.trim();
 
         // check if contains numbers only
         if (strSeconds.match(/^[0-9]+$/)) {
