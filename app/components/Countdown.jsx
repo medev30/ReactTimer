@@ -6,7 +6,7 @@ var Controls = require('Controls');
 var Countdown = React.createClass({
     getInitialState: function() {
         return {
-            count: 0,
+            count: 0,  // seconds
             countdownStatus: 'stopped'
         };
     },
@@ -43,12 +43,12 @@ var Countdown = React.createClass({
             if (newCount === 0) {
                 this.setState({ countdownStatus: 'stopped' });
             }
-        }, 1000);
+        }, 100);
     },
 
     onSetCountdown: function(seconds) {
         this.setState({
-            count: seconds,
+            count: seconds * 10,  // convert to deci seconds
             countdownStatus: 'started'
         });
     },

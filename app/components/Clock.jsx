@@ -12,19 +12,26 @@ var Clock = React.createClass({
     },
 
     formatSeconds: function(totalSeconds) {
-        var seconds = totalSeconds % 60;
-        var minutes = Math.floor(totalSeconds / 60);
+        // totalSeconds is deciseconds
+        var dsec = totalSeconds % 10;
+        var seconds = Math.floor(totalSeconds / 10) % 60;
+        var minutes = Math.floor(totalSeconds / 600);
         // var minutes = (totalSec - seconds) / 60;  // alternatively
+
+        if (dsec < 10) {
+            dsec = '0' + dsec;
+        }
 
         if (seconds < 10) {
             seconds = '0' + seconds;
         }
+        // seconds = ('0' + seconds).slice(-2);  // alternatively
 
         if (minutes < 10) {
             minutes = '0' + minutes;
         }
 
-        return minutes + ':' + seconds;
+        return minutes + ':' + seconds + ':' + dsec;
     },
 
     render: function() {
