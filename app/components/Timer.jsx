@@ -17,8 +17,6 @@ var Timer = React.createClass({
 
     // runs after either props or state get updated
     componentDidUpdate: function (prevProps, prevState) {
-        console.log('prevProps ', prevProps);
-        console.log('prevState ', prevState);
         if (this.state.timerStatus !== prevState.timerStatus) {
             switch (this.state.timerStatus) {
                 case 'started':
