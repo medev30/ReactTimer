@@ -20,14 +20,11 @@ var Timer = React.createClass({
         if (this.state.timerStatus !== prevState.timerStatus) {
             switch (this.state.timerStatus) {
                 case 'started':
-                    this.startTimer();
+                    this.onStart();
                     break;
                 case 'stopped':
-                    clearInterval(this.timer);
-                    this.timer = null;
-                    break;
-                case 'clear':
                     this.setState({ count: 0 });
+                case 'paused':
                     clearInterval(this.timer);
                     this.timer = null;
                     break;
@@ -37,14 +34,12 @@ var Timer = React.createClass({
 
     componentWillUnmount: function () {
         clearInterval(this.timer);
-        this.timer = null;
     },
 
-    startTimer: function () {
+    onStart: function () {
         this.timer = setInterval(() => {
-            var newCount = this.state.count + 1;
             this.setState({
-                count: newCount
+                count: this.state.count + 1
             });
 
             // if (newCount === 0) {
@@ -68,7 +63,8 @@ var Timer = React.createClass({
             <div>
                 <h1 className='page-title'>Timer App</h1>
                 <Clock totalSeconds={ count  }/>
-                <ControlsTimer timerStatus={timerStatus} onStatusChange={this.onStatusChange} />
+                {/*<ControlsTimer timerStatus={timerStatus} onStatusChange={this.onStatusChange} />*/}
+                <Controls countdownStatus={timerStatus} onStatusChange={this.onStatusChange} />
                 {/*{ renderControlArea() }*/}
             </div>
         );
