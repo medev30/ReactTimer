@@ -8,7 +8,7 @@ var Timer = require('Timer');
 var Countdown = require('Countdown');
 
 // Load Foundation
-require('style!css!foundation-sites/dist/foundation.min.css')
+// require('style!css!foundation-sites/dist/foundation.min.css') // replaced by sassLoader in webpack.config.js
 $(document).foundation();
 
 // Load css

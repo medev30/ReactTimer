@@ -10,7 +10,7 @@ var Nav = React.createClass({
             <div className='top-bar'>
                 <div className='top-bar-left'>
                     <ul className='menu'>
-                        <li className='menu-text'>React Time App</li>
+                        <li className='menu-text'>Timer App</li>
                         <li >
                             <IndexLink to='/' activeClassName='active-link'> Timer </IndexLink>
                         </li>
@@ -21,7 +21,7 @@ var Nav = React.createClass({
                 </div>
                 <div className='top-bar-right'>
                         <ul className='menu'>
-                            <li className='menu-text'>Created for <a href='http://' target='_blank' >Alex</a></li>
+                            <li className='menu-text'><a href='https://facebook.github.io/react/' target='_blank'>REACT</a></li>
                         </ul>
 
                     {/*<form onSubmit={this.onSearch}>
